@@ -17,6 +17,15 @@ export async function generateMetadata({ params }) {
   };
 }
 
+// Nueva función para generar parámetros estáticos
+export async function generateStaticParams() {
+  const meals = await getMeals();
+
+  return meals.map((meal) => ({
+    mealSlug: meal.slug,
+  }));
+}
+
 export default function MealDetailsPage({ params }) {
   const meal = getMeal(params.mealSlug);
 
