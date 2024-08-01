@@ -18,7 +18,7 @@ const nextConfig = {
   },
   output: "export",
   reactStrictMode: true,
-  basePath: recetas_nextjs_cloudinary
+  basePath: "/recetas_nextjs_cloudinary"
 };
 
 export default nextConfig;
