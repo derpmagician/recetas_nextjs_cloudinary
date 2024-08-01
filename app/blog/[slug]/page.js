@@ -1,5 +1,3 @@
-import Link from "next/link"
-
 const blogPostPage = ({ params }) => {
   return (
     <main>
@@ -9,6 +7,14 @@ const blogPostPage = ({ params }) => {
     </main>
 
   )
+}
+
+export async function getStaticPaths() {
+  const paths = slugs.map(slug => ({
+    params: { slug },
+  }));
+
+  return { paths, fallback: false };
 }
 
 export default blogPostPage
