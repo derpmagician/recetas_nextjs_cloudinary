@@ -4,6 +4,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -20,5 +22,8 @@
     "sharp": "^0.33.4",
     "slugify": "^1.6.6",
     "xss": "^1.0.15"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
