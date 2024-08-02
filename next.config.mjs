@@ -18,6 +18,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   basePath: '/recetas_nextjs_cloudinary',
+  assetPrefix: '/recetas_nextjs_cloudinary/'
 };
 
 export default nextConfig;
