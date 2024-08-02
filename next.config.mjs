@@ -17,8 +17,8 @@ const nextConfig = {
     CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET,
   },
   reactStrictMode: true,
-  basePath: isProd ? '/recetas_nextjs_cloudinary' : '',
-  assetPrefix: isProd ? '/recetas_nextjs_cloudinary' : '',
+  basePath: isProd ? '/' : '',
+  assetPrefix: isProd ? '/' : '',
 
 };
 
