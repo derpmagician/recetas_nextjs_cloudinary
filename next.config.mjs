@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -17,8 +18,9 @@ const nextConfig = {
     CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET,
   },
   reactStrictMode: true,
-  basePath: '/recetas_nextjs_cloudinary',
-  assetPrefix: '/recetas_nextjs_cloudinary/'
+  basePath: isProd ? '/recetas_nextjs_cloudinary' : '',
+  assetPrefix: isProd ? '/recetas_nextjs_cloudinary' : '',
+
 };
 
 export default nextConfig;

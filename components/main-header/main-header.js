@@ -7,13 +7,17 @@ import classes from './main-header.module.css'
 import NavLink from "./nav-link";
 
 const MainHeader = () => {
-
+  const isProd = process.env.NODE_ENV === 'production';
+  const prefix = isProd ? '/recetas_nextjs_cloudinary' : '';
+  const imageUrl = logoImg.src.startsWith(prefix) ? logoImg.src : `${prefix}${logoImg.src}`;
   return (
     <>
     <MainHeaderBackground></MainHeaderBackground>
     <header className={classes.header} >
     <Link className={classes.logo} href="/">
-      <Image src={logoImg} alt="Plato con comida." priority/>
+      <Image
+        src={logoImg}
+        alt="Plato con comida." priority/>
       NextLevel Food
     </Link>
     {/* <img src="/logo.png" alt="A server surrounded by magic sparkles." /> */}
