@@ -16,7 +16,7 @@ export default function MealsPage() {
     <>
       <header className={classes.header}>
         <h1>
-          Deliciosas comdad creadas{' '}
+          Deliciosas comidas creadas{' '}
           <span className={classes.highlight}>por ti</span>
         </h1>
         <p>
