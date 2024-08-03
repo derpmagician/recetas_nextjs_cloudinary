@@ -1,17 +1,20 @@
+// meals/page.js
 import { Suspense } from 'react';
 import Link from 'next/link';
 
 import classes from './page.module.css';
 import MealsGrid from '@/components/meals/meals-grid';
-import { getMeals } from '@/lib/meals';
+import { getMeals, getMealsFromSupabase } from '@/lib/meals';
 
 async function Meals() {
-  const meals = await getMeals();
+  // const meals = await getMeals();
+  const meals = await getMealsFromSupabase();
 
   return <MealsGrid meals={meals} />;
 }
 
 export default function MealsPage() {
+  
   return (
     <>
       <header className={classes.header}>

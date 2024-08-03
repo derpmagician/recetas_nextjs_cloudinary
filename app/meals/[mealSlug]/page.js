@@ -1,11 +1,14 @@
+// meals/[mealSlug]/page.js
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-import { getMeal, getMeals } from '@/lib/meals';
+import { getMeal, getMeals, getMealFromSupabase, getMealsFromSupabase } from '@/lib/meals';
 import classes from './page.module.css';
 
 export async function generateMetadata({ params }) {
-  const meal = getMeal(params.mealSlug);
+  // const meal = getMeal(params.mealSlug);
+  const meal = await getMealFromSupabase(params.mealSlug);
+
 
   if (!meal) {
     notFound();
@@ -19,7 +22,9 @@ export async function generateMetadata({ params }) {
 
 // Nueva función para generar parámetros estáticos
 export async function generateStaticParams() {
-  const meals = await getMeals();
+  // const meals = await getMeals();
+  const meals = await getMealsFromSupabase();
+
 
   return meals.map((meal) => ({
     mealSlug: meal.slug,
@@ -27,13 +32,17 @@ export async function generateStaticParams() {
 }
 
 export default async function MealDetailsPage({ params }) {
-  const meal = getMeal(params.mealSlug);
+  // const meal = getMeal(params.mealSlug);
+  const meal = await getMealFromSupabase(params.mealSlug);
+
 
   if (!meal) {
     notFound();
   }
 
-  meal.instructions = meal.instructions.replace(/\n/g, '<br />');
+  // Verifica si meal.instructions está definido antes de reemplazar
+  const instructions = meal.instructions ? meal.instructions.replace(/\n/g, '<br />') : '';
+  // meal.instructions = meal.instructions.replace(/\n/g, '<br />');
 
   return (
     <>
@@ -53,7 +62,7 @@ export default async function MealDetailsPage({ params }) {
         <p
           className={classes.instructions}
           dangerouslySetInnerHTML={{
-            __html: meal.instructions,
+            __html: instructions,
           }}
         ></p>
       </main>
