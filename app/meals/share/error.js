@@ -1,3 +1,4 @@
+// app/meals/share/error.js
 'use client';
 const Error = ({error}) => {
   return (
