@@ -9,7 +9,7 @@ export const useSupabase = () => {
 
   const getCurrentUser = async () => {
     const { data: { user: currentUser } } = await supabase.auth.getUser()
-    console.log('Usuario actual:', currentUser);
+    // console.log('Usuario actual:', currentUser);
     setUser(currentUser)
   }
 
