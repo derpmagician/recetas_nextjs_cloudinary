@@ -7,11 +7,10 @@ import MealsFormSubmit from '@/components/meals/meals-form-submit';
 
 export default function ShareMealPage() {
   const [state, formAction] = useFormState(shareMeal, {message: null});
-
   return (
     <>
       <header className={classes.header}>
-        <h1>
+        <h1 >
           Comparte tus <span className={classes.highlight}>recetas favoritas</span>
         </h1>
         <p>O cualquier comida que ames</p>
