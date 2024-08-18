@@ -1,6 +1,6 @@
 // components/users/UserProfile.js
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSupabase } from '@/hooks/useSupabase';
 const UserProfile = () => {
   const { user, getCurrentUser } = useSupabase();

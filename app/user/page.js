@@ -1,5 +1,5 @@
 // app/user/page.js
-// import UserProfile from '@/components/users/UserProfile';
+import UserProfile from '@/components/users/UserProfile';
 const UserPage = () => {
   return (
     <>
